@@ -48,6 +48,10 @@ function attachFormSubmitEvent() {
             }
             createNewPlayer(newPlayer);
         } else {
+            if (!selectedPlayer) {
+                alert('Veuillez sélectionner un pseudo.');
+                return;
+            }
             sessionStorage.setItem('playerName', selectedPlayer);
             window.location.href = 'choixDuJeu.html';
         }
