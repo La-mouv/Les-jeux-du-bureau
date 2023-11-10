@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choix du Jeu - Les Jeux du Bureau</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <h1 id="choixdujeu">Choisissez Votre Jeu</h1>
+        <div class="game-selection">
+            <button onclick="startGame('jeuTyping/jeu1.html')">DactiMarathon</button>
+            <button onclick="startGame('DessinOlympique/jeu2.html')">Dessin Olympique</button>
+            <button onclick="startGame('jeu3.html')">Jeu 3</button>
+            <!-- Ajoutez autant de boutons que nécessaire pour vos jeux -->
+        </div>
+        
+    </div>
+
+    <script>
+        function startGame(gamePage) {
+            window.location.href = gamePage;
+        }
+    </script>
+</body>
+</html>
