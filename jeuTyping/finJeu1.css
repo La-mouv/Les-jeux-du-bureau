@@ -21,6 +21,7 @@ body {
 }
 
 button {
+    width: 250px; /* Prend toute la largeur du conteneur parent .game-leaderboard */
     background-color: #008CBA;
     border: none;
     color: white;
@@ -38,3 +39,37 @@ button {
 button:hover {
     background-color: #005f5f;
 }
+
+/* Styles pour le leaderboard */
+#leaderboardJeu1, #leaderboardJeu2 {
+    width: 300px; /* Prend toute la largeur du conteneur parent .game-leaderboard */
+    background-color: rgba(0, 0, 0, 0.7); /* Fond noir semi-transparent */
+    color: #FFFFFF; /* Texte blanc pour une meilleure lisibilité */
+    font-family: 'Courier New', monospace; /* Police classique rétro */
+    padding: 10px;
+    border-radius: 8px; /* Coins arrondis pour un look moderne */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre subtile pour du relief */
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  
+  /* Style pour les entrées du leaderboard */
+  #leaderboardJeu1 p, #leaderboardJeu2 p {
+    margin: 5px 0;
+    padding: 5px;
+    border-radius: 4px; /* Coins légèrement arrondis pour les entrées */
+  }
+  
+  /* Style spécifique pour le premier joueur */
+  #leaderboardJeu1 p:first-child, #leaderboardJeu2 p:first-child {
+    background-color: rgba(255, 215, 0, 0.7); /* Fond doré semi-transparent pour le vainqueur */
+    color: #000000; /* Texte noir pour le contraste */
+    font-weight: bold;
+    border: 2px solid #ffd700; /* Bordure dorée pour le vainqueur */
+    margin-bottom: 10px;
+  }
+  
+  /* Style pour la numérotation (Optionnel) */
+  .leaderboard-ranking {
+    font-weight: bold; /* Texte en gras pour la numérotation */
+  }

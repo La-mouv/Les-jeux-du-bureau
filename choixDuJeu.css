@@ -5,11 +5,12 @@ body, html {
     justify-content: center;
     align-items: center;
     font-family: 'Arial', sans-serif;
+    color: #FFFFFF; /* Texte blanc pour une meilleure lisibilité */
     overflow: hidden; /* Empêche le défilement de la page entière */
     background-color: #f4f4f4; /* Couleur de fond de la page, à ajuster si nécessaire */
 }
 
-.app-container {
+.games-container {
     width: 720px; /* Largeur fixe pour le conteneur de jeu */
     height: 720px; /* Hauteur fixe pour le conteneur de jeu */
     background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('images/ImageEcranAccueil.jpg');
@@ -23,6 +24,14 @@ body, html {
     justify-content: center;
     align-items: center; /* Centrer les éléments à l'intérieur du conteneur */
 }
+
+.game-leaderboard {
+    display: flex;
+    flex-direction: column; /* Empilement vertical */
+    align-items: center; /* Centrage vertical */
+    width: 50%; /* Utilise la moitié de la largeur du conteneur */
+    max-height: 100%; /* S'assure que les éléments n'excèdent pas la hauteur du conteneur */
+  }
 
 #player-name {
     margin-bottom: 10px;
@@ -52,20 +61,37 @@ button:hover {
     transform: scale(1.05); /* Légère augmentation de la taille au survol */
 }
 
-#bienvenue {
-    font-family: 'Fredoka One', cursive, sans-serif; /* Police plus ludique et amusante */
-    color: #dd3333; /* Couleur vive */
-    font-size: 2.5em; /* Taille de police plus grande pour le titre */
-    margin-bottom: 30px; /* Plus d'espace sous le titre */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Ombre portée pour le titre */
+/* Styles pour le leaderboard */
+#leaderboardJeu1, #leaderboardJeu2 {
+  width: 100%; /* Prend toute la largeur du conteneur parent .game-leaderboard */
+  background-color: rgba(0, 0, 0, 0.7); /* Fond noir semi-transparent */
+  color: #FFFFFF; /* Texte blanc pour une meilleure lisibilité */
+  font-family: 'Courier New', monospace; /* Police classique rétro */
+  padding: 10px;
+  border-radius: 8px; /* Coins arrondis pour un look moderne */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre subtile pour du relief */
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
-.center-button {
-    margin: 0 auto; /* Centrage horizontal du bouton */
-    display: block; /* Pour permettre le centrage avec margin auto */
+/* Style pour les entrées du leaderboard */
+#leaderboardJeu1 p, #leaderboardJeu2 p {
+  margin: 5px 0;
+  padding: 5px;
+  border-radius: 4px; /* Coins légèrement arrondis pour les entrées */
 }
 
-.centered-element {
-    margin: 10px auto; /* Centrage horizontal avec un peu d'espace */
-    display: block; /* Permet le centrage avec margin auto */
+/* Style spécifique pour le premier joueur */
+#leaderboardJeu1 p:first-child, #leaderboardJeu2 p:first-child {
+  background-color: rgba(255, 215, 0, 0.7); /* Fond doré semi-transparent pour le vainqueur */
+  color: #000000; /* Texte noir pour le contraste */
+  font-weight: bold;
+  border: 2px solid #ffd700; /* Bordure dorée pour le vainqueur */
+  margin-bottom: 10px;
 }
+
+/* Style pour la numérotation (Optionnel) */
+.leaderboard-ranking {
+  font-weight: bold; /* Texte en gras pour la numérotation */
+}
+
