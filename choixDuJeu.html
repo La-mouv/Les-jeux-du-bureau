@@ -25,16 +25,27 @@
        </script>
 </head>
 <body>
-<div class="games-container">
-  <div class="game-leaderboard">
-    <button onclick="startGame('DessinOlympique/jeu2.html')">Dessin Olympique</button>
-    <div id="leaderboardJeu2"></div>
-  </div>
-  <div class="game-leaderboard">
-    <button onclick="startGame('jeuTyping/jeu1.html')">DactiMarathon</button>
-    <div id="leaderboardJeu1"></div>
-  </div>
-</div>
+    <div class="games-container">
+        <!-- Boutons de navigation -->
+        <button id="left-button" onclick="move(-1)">&#10094;</button> <!-- Flèche gauche -->
+
+        <!-- Conteneur des jeux -->
+        <div id="game-slider">
+          <div class="game-leaderboard">
+            <button onclick="startGame('DessinOlympique/jeu2.html')">Dessin Olympique</button>
+            <div id="leaderboardJeu2"></div>
+          </div>
+          <div class="game-leaderboard">
+            <button onclick="startGame('jeuTyping/jeu1.html')">DactiMarathon</button>
+            <div id="leaderboardJeu1"></div>
+          </div>
+          <div class="game-leaderboard">
+            <button onclick="startGame('jeuClique/jeu3.html')">Cliques-Viiite</button>
+            <div id="leaderboardJeu3"></div>
+          </div>
+        </div>
+        <button id="right-button" onclick="move(1)">&#10095;</button>  <!-- Flèche droite -->
+      </div>
 
 
     <script src="choixDuJeu.js"></script>

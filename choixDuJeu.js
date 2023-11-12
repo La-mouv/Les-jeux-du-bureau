@@ -2,6 +2,7 @@
   function loadLeaderboards() {
     loadLeaderboardForGame('jeu1', 'leaderboardJeu1');
     loadLeaderboardForGame('jeu2', 'leaderboardJeu2');
+    loadLeaderboardForGame('jeu3', 'leaderboardJeu3');
   }
   
   function loadLeaderboardForGame(gameRef, leaderboardElementId) {
@@ -30,3 +31,12 @@
     window.location.href = gamePage;
   }
   
+  let currentGame = 0;
+
+function move(step) {
+  const games = document.querySelectorAll('.game-leaderboard');
+  const totalGames = games.length;
+
+  currentGame = (currentGame + step + totalGames) % totalGames;
+  document.getElementById('game-slider').style.transform = `translateX(${-100 * currentGame}%)`;
+}
