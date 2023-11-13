@@ -1,3 +1,8 @@
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+      restartGame();
+  }
+});
 
 function restartGame() {
     // Assurez-vous d'ajuster l'URL pour correspondre à l'emplacement de votre fichier jeu2.html

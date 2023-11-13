@@ -3,6 +3,12 @@ function returnToGameChoice() {
     window.location.href = '../choixDuJeu.html';
 }
 
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+      restartGame();
+  }
+});
+
 function restartGame() {
     window.location.href = 'jeu3.html'; // Assurez-vous que le chemin est correct
 }
