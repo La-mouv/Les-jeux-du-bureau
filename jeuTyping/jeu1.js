@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     let timeLeft = 500; // Ajoutez cette variable globalement si elle n'est pas déjà présente
 
     
+    
     function updateScore() {
         // Plus le joueur tape vite, plus le multiplicateur est élevé
         let timeMultiplier = timeLeft / 100; // Utilisez une base de 100 pour un multiplicateur compréhensible

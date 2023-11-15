@@ -1,3 +1,10 @@
+const messagesRef = firebase.database().ref('chat');
+const chatBox = document.getElementById('chatBox'); // conteneur avec défilement
+const chatMessages = document.getElementById('chatMessages'); // UL pour les messages
+const chatInput = document.getElementById('chatInput');
+const playerNameDisplay = document.getElementById('playerNameDisplay');
+const playerName = sessionStorage.getItem('playerName') || 'Sans pseudo';
+playerNameDisplay.textContent = playerName;
 
   function loadLeaderboards() {
     loadLeaderboardForGame('jeu1', 'leaderboardJeu1');
@@ -40,3 +47,40 @@ function move(step) {
   currentGame = (currentGame + step + totalGames) % totalGames;
   document.getElementById('game-slider').style.transform = `translateX(${-100 * currentGame}%)`;
 }
+
+function scrollToBottom() {
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+
+// Envoyer un message
+function sendMessage() {
+  const text = chatInput.value.trim();
+  if(text) {
+    chatInput.value = '';
+    messagesRef.push({ pseudo: playerName, message: text, timestamp: firebase.database.ServerValue.TIMESTAMP });
+  }
+}
+
+// Écouter la touche Entrée dans le champ de saisie
+chatInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    sendMessage();
+  }
+});
+
+// Écouter les messages
+messagesRef.on('child_added', (data) => {
+  const message = data.val();
+  const messageElement = document.createElement('li');
+  // Créez un span pour le pseudo et appliquez la classe "pseudo"
+  const pseudoElement = document.createElement('span');
+  pseudoElement.textContent = message.pseudo;
+  pseudoElement.className = 'pseudo';
+
+  messageElement.appendChild(pseudoElement);
+  messageElement.appendChild(document.createTextNode(": " + message.message));
+  chatMessages.appendChild(messageElement);
+
+  scrollToBottom();
+});
