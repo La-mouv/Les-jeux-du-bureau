@@ -10,6 +10,7 @@ playerNameDisplay.textContent = playerName;
     loadLeaderboardForGame('jeu1', 'leaderboardJeu1');
     loadLeaderboardForGame('jeu2', 'leaderboardJeu2');
     loadLeaderboardForGame('jeu3', 'leaderboardJeu3');
+    loadLeaderboardForGame('jeu4', 'leaderboardJeu4');
   }
   
   function loadLeaderboardForGame(gameRef, leaderboardElementId) {
@@ -78,6 +79,12 @@ messagesRef.on('child_added', (data) => {
   pseudoElement.textContent = message.pseudo;
   pseudoElement.className = 'pseudo';
 
+      // Vérifiez si le pseudo est 'Alexis' et appliquez une couleur différente
+    if (message.pseudo === 'Alexis') {
+        pseudoElement.style.color = 'red';
+    } else {
+        pseudoElement.className = 'pseudo';
+    }
   messageElement.appendChild(pseudoElement);
   messageElement.appendChild(document.createTextNode(": " + message.message));
   chatMessages.appendChild(messageElement);
