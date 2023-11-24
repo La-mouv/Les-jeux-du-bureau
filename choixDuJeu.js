@@ -11,6 +11,7 @@ playerNameDisplay.textContent = playerName;
     loadLeaderboardForGame('jeu2', 'leaderboardJeu2');
     loadLeaderboardForGame('jeu3', 'leaderboardJeu3');
     loadLeaderboardForGame('jeu4', 'leaderboardJeu4');
+    loadLeaderboardForGame('jeu5', 'leaderboardJeu5');
   }
   
   function loadLeaderboardForGame(gameRef, leaderboardElementId) {

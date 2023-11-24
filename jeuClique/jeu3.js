@@ -25,7 +25,7 @@ function startGame() {
     timeLeft = 10;
     document.getElementById('score').textContent = score;
     document.getElementById('timer').textContent = timeLeft;
-    document.getElementById('clickArea').textContent = 'Cliquez ici !';
+    document.getElementById('clickArea');
     timerInterval = setInterval(updateTimer, 1000);
 }
 
