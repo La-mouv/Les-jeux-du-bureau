@@ -82,13 +82,25 @@ document.addEventListener('DOMContentLoaded', () => {
         let rect = canvas.getBoundingClientRect();
         let x = e.clientX - rect.left;
         let y = e.clientY - rect.top;
-        placedPoints.push({ x: x, y: y });
+        let newPoint = { x: x, y: y };
+        placedPoints.push(newPoint);
         drawPoint(x, y, 'red'); // Points placés en rouge
-
+    
+        highlightClosestOriginalPoint(newPoint); // Met en évidence le point bleu le plus proche
+    
+        displayPointScore(newPoint); // Affiche le score pour le point placé
+    
         if (placedPoints.length === numberOfPoints) {
             gameOver();
         }
     }
+    
+    function highlightClosestOriginalPoint(placedPoint) {
+        let closestPoint = findClosestOriginalPoint(placedPoint);
+        drawPoint(closestPoint.x, closestPoint.y, 'blue'); // Redessine le point bleu le plus proche
+    }
+    
+    
 
     function clearCanvas() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -177,5 +189,6 @@ document.addEventListener('DOMContentLoaded', () => {
         let pointScore = Math.max(0, 10 - distance);
         ctx.fillText(pointScore.toFixed(0), placedPoint.x + pointRadius, placedPoint.y + pointRadius);
     }
+    
 
 });

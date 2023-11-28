@@ -82,7 +82,7 @@ button:hover {
 }
 
 /* Styles pour le leaderboard */
-#leaderboardJeu1, #leaderboardJeu2, #leaderboardJeu3, #leaderboardJeu4, #leaderboardJeu5 {
+#leaderboardJeu1, #leaderboardJeu2, #leaderboardJeu3, #leaderboardJeu4, #leaderboardJeu5, #leaderboardJeu6 {
   width: 50%; /* Prend toute la largeur du conteneur parent .game-leaderboard */
   background-color: rgba(0, 0, 0, 0.7); /* Fond noir semi-transparent */
   color: #FFFFFF; /* Texte blanc pour une meilleure lisibilité */
@@ -97,14 +97,14 @@ button:hover {
 }
 
 /* Style pour les entrées du leaderboard */
-#leaderboardJeu1 p, #leaderboardJeu2 p, #leaderboardJeu3 p, #leaderboardJeu4 p, #leaderboardJeu5 p {
+#leaderboardJeu1 p, #leaderboardJeu2 p, #leaderboardJeu3 p, #leaderboardJeu4 p, #leaderboardJeu5 p, #leaderboardJeu6 p {
   margin: 5px 0;
   padding: 5px;
   border-radius: 4px; /* Coins légèrement arrondis pour les entrées */
 }
 
 /* Style spécifique pour le premier joueur */
-#leaderboardJeu1 p:first-child, #leaderboardJeu2 p:first-child, #leaderboardJeu3 p:first-child, #leaderboardJeu4 p:first-child, #leaderboardJeu5 p:first-child {
+#leaderboardJeu1 p:first-child, #leaderboardJeu2 p:first-child, #leaderboardJeu3 p:first-child, #leaderboardJeu4 p:first-child, #leaderboardJeu5 p:first-child, #leaderboardJeu6 p:first-child {
   background-color: rgba(255, 215, 0, 0.7); /* Fond doré semi-transparent pour le vainqueur */
   color: #000000; /* Texte noir pour le contraste */
   font-weight: bold;
