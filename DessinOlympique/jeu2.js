@@ -24,7 +24,11 @@ canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('mouseup', () => {
     drawing = false;
     ctx.closePath();
+    clearInterval(timerInterval);  // Arrêter le timer
+    alert("Vous avez levé le crayon, le jeu est terminé !");
+    gameOver();
 });
+
 
 function updateTimer() {
     timeRemaining--;
@@ -114,36 +118,33 @@ function gameOver() {
     alert(`Jeu terminé! Votre score est ${score} sur 50.`);
     
     // Mise à jour du meilleur score si nécessaire (logique similaire à celle fournie pour le jeu 1)
-    updateBestScoreIfNecessary(score, 'jeu2', function() {
-        window.location.href = 'finJeu2.html';  // Redirige vers la page de fin de jeu
-    });
+    updateBestScoreIfNecessary(score);
 }
 
-function updateBestScoreIfNecessary(currentScore, gameRef, callback) {
-    const playerName = sessionStorage.getItem('playerName');
-    var playerScoreRef = firebase.database().ref('/scores/' + playerName + '/' + gameRef);
-    
+function updateBestScoreIfNecessary(score) {
+    var playerScoreRef = firebase.database().ref('/scores/' + playerName + '/jeu2');
     playerScoreRef.once('value', function(snapshot) {
-        let bestScore = snapshot.val() || 0;
-        if (currentScore > bestScore) {
-            playerScoreRef.set(currentScore, function(error) {
+        var bestScore = snapshot.val() || 0;
+        if (score > bestScore) {
+            playerScoreRef.set(score, function(error) {
                 if (error) {
                     alert('Une erreur est survenue lors de la mise à jour du score.');
                 } else {
                     alert('Nouveau meilleur score enregistré !');
                 }
-                if (typeof callback === 'function') {
-                    callback();
-                }
+                // Maintenant que nous avons terminé, redirigez vers la page de fin du jeu
+                redirectToGameOverPage();
             });
         } else {
-            if (typeof callback === 'function') {
-                callback();
-            }
+            // Pas de nouveau meilleur score, redirigez simplement
+            redirectToGameOverPage();
         }
     });
 }
 
+function redirectToGameOverPage() {
+    window.location.href = 'finJeu2.html'; // Assurez-vous que le chemin est correct
+}
 
 function isPointNearSegment(segment) {
     for (let point of drawnPoints) {

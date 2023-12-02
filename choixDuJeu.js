@@ -93,3 +93,54 @@ messagesRef.on('child_added', (data) => {
 
   scrollToBottom();
 });
+
+window.onload = function() {
+  const playerName = sessionStorage.getItem('playerName');
+  const resetButton = document.getElementById('resetScoresButton');
+
+  if (playerName === 'Alexis') {
+      resetButton.style.display = 'block'; // Afficher le bouton
+  }
+};
+
+document.getElementById('resetScoresButton').addEventListener('click', function() {
+  const playerName = sessionStorage.getItem('playerName');
+  
+  if (playerName === 'Alexis') {
+      const password = prompt('Veuillez entrer le mot de passe pour réinitialiser les scores:');
+      if (password === 'sdcmf') {  // Remplacez 'VotreMotDePasse' par le mot de passe réel
+          if (confirm('Êtes-vous sûr de vouloir réinitialiser tous les scores ?')) {
+              resetAllScores();
+          }
+      } else {
+          alert('Mot de passe incorrect.');
+      }
+  } else {
+      alert('Vous n’êtes pas autorisé à réinitialiser les scores.');
+  }
+});
+
+function resetAllScores() {
+  // Accéder au noeud 'scores' dans Firebase et le réinitialiser
+  var scoresRef = firebase.database().ref('/scores/');
+  scoresRef.once('value', function(snapshot) {
+      if (snapshot.exists()) {
+          // Parcourir tous les joueurs et réinitialiser les scores pour chaque jeu
+          snapshot.forEach(function(playerScores) {
+              const playerName = playerScores.key;
+              playerScores.forEach(function(gameScore) {
+                  var gameKey = gameScore.key;
+                  var playerGameScoreRef = firebase.database().ref('/scores/' + playerName + '/' + gameKey);
+                  playerGameScoreRef.set(0, function(error) {
+                      if (error) {
+                          console.error('Erreur lors de la réinitialisation du score pour ' + playerName + ' au ' + gameKey);
+                      }
+                  });
+              });
+          });
+          alert('Tous les scores ont été réinitialisés.');
+      } else {
+          alert('Aucun score à réinitialiser.');
+      }
+  });
+}
