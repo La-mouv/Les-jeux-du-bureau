@@ -7,13 +7,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const playerName = sessionStorage.getItem('playerName') || 'Sans pseudo';
     playerNameDisplay.textContent = playerName;
     const allWords = [
-        "athlétisme", "natation", "cyclisme", "gymnastique", "tennis", "football", "basketball", "volley",
-        "haltérophilie", "tir à l'arc", "boxe", "judo", "escrime", "taekwondo", "handball", "pentathlon",
-        "triathlon", "athlète", "médaille", "stade", "compétition", "olympique", "cérémonie", "épreuve", "record",
-        "drapeau", "village olympique", "flamme", "entraînement", "équipe", "marathon", "saut en hauteur",
-        "anthos", "lutte", "sodexo live!", "voile", "tennis de table", "badminton", "rugby", "escalade",
-        "tir", "plongeon", "spectateur", "pulse", "paris 2024", "barbazan", "arène", "arbitre", "sportif"
-    ];    
+        "course", "natation", "saut", "lance", "boxe", "vélo", "gym", "relais", "plongée", "tir à l'arc", "basket", "sdc vs vop", "lutte", "élancourt", "trocadéro", "surf", "triathlon", "taekwondo", "escalade", "tennis", "skate", "sprint", "épée", "bolt", "tir", "rugby", "volley", "javelot", "saut en longueur", "saut à la perche", "slalom", "marathon", "golf", "ping-ping", "trampoline", "équitation", "karaté", "hockey", "badminton", "basketball", "canotage", "beach-volley", "cyclisme", "p24", "relais", "planche à voile" ];    
     let words = [];
     let currentWordIndex = 0;
     let score = 0;

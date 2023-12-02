@@ -63,6 +63,19 @@ body, html {
     font-size: 1.2em; /* Texte plus grand dans l'input */
 }
 
+#hallOfFame {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: rgb(240, 233, 104); /* Vert, couleur vive et ludique */
+  border: none; /* Pas de bordure */
+  border-radius: 20px; /* Coins arrondis */
+  color: rgb(0, 0, 0); /* Texte en blanc pour contraste */
+  font-size: 1.5em; /* Augmenter la taille de la police */
+  font-weight: bold; /* Rendre le texte en gras */
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2); /* Ombre portée pour donner du relief */
+  transition: background-color 0.2s, transform 0.1s; /* Transition pour le survol */
+}
+
 button {
     padding: 10px 20px;
     cursor: pointer;
